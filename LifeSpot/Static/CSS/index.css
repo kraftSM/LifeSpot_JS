@@ -76,7 +76,8 @@ aside {
         padding: 1px;
         border: 2px solid red;
 }
-/* Стили списка отзыва */
+/* Стили списка отзыва, для полей отзыва подобран формат, но это на любителя..
+    По- хорошему нужен художник... */
 .review-container, .review-button {
     display: inline-block;
     color: darkblue;
