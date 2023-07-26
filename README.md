@@ -1,2 +1,2 @@
 # LifeSpot
- LifeSpot - тестовое задание по юнитам (26-27): HTML и CSS
+ LifeSpot - тестовое задание по юнитам (26-28): HTML и CSS, JS
