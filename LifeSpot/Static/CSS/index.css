@@ -76,3 +76,40 @@ aside {
         padding: 1px;
         border: 2px solid red;
 }
+/* Стили списка отзыва */
+.review-container, .review-button {
+    display: inline-block;
+    color: darkblue;
+    /* background-color: cadetblue;
+    margin-top: 0.5em;
+        padding-left: 1%;
+    padding-top: 1%;
+    */
+    padding: 0.5%;
+    margin: 5 px;
+}
+#review-user {
+    color: darkblue;
+    /*
+        background-color: cadetblue;
+     background-color: cadetblue;
+    margin-top: 0.5em; 
+    display: inline-block;
+        margin-top: 0.5em;
+    */
+    background-color: azure;
+    margin: 4 px;    
+    padding: 4 px;
+    border: 1px solid black;
+}
+.review-text {
+    /*display: inline-block;
+    color:: darkblue;  
+    margin: 5 px; 
+    margin-top: 0.5em;
+    */   
+    margin-top: 3 px;
+    padding-left: 3%;
+    padding-top: 3 px;
+    border: 2px solid cadetblue;
+}

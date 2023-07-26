@@ -33,7 +33,7 @@ function GetUserReview() {
     }
     userReview["createDate"] = new Date().toLocaleString()
     // Отображем поля отзыва в  Alerte - for DEBUG
-    ShowUserReview(userReview) 
+    // ShowUserReview(userReview) 
     // Сохраняем поля отзыва на странице - живет пока не ушли с неё :)  "хрнанилище" пока нет - for DEBUG
     //alert("Запись отзыв от пользователя: start")
     saveUserReview(userReview)
@@ -48,8 +48,9 @@ function saveUserReview(usrRev) {
 }
 */
 const saveUserReview =  review => {
-    document.getElementsByClassName('reviews')[0].innerHTML += '    <div class="review-text">\n' +
-        `<p> <i> <b>${review['userName']}</b>  ${review['createDate']}</i></p>` +
+    document.getElementsByClassName('reviews')[0].innerHTML += '    <div class="review-text">\n    <div id="review-user" ' +
+        `<p> <i> <b>${review['userName']}</b>  ${review['createDate']}</i></p>` + 
+        '</div>' +
         `<p>${review['userText']}</p>` +
         '</div>';
 }
