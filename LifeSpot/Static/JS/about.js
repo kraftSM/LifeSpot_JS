@@ -1,4 +1,4 @@
-﻿function GetUserRet() {
+﻿function GetUserReturn() {
     userName = GetUserName();
     //alert("Приветствуем на LifeSpot! " + userName);
     userText = GetUserText(userName);    
@@ -16,4 +16,40 @@ function GetUserName() {
         alert("Приветствуем на LifeSpot! " + usrName);
         return usrName;
     }
+}
+
+function GetUserReview() {
+    // Создадим объект    
+    let userReview = {}
+    // Запрашиваем и сохраняем свойство отзыва в полях объекта
+    userReview["userName"] = prompt("Пожалуйста, введите ваше имя для отзыва")
+    //userReview["userName"] ="Васек"
+    if (userReview["userName"] == null) {
+        return
+    }    
+    userReview["userText"] = prompt("Пожалуйста, введите ваш отзыв")
+    if(userReview["userText"] == null) {
+        return
+    }
+    userReview["createDate"] = new Date().toLocaleString()
+    // Отображем поля отзыва в  Alerte - for DEBUG
+    ShowUserReview(userReview) 
+    // Сохраняем поля отзыва на странице - живет пока не ушли с неё :)  "хрнанилище" пока нет - for DEBUG
+    //alert("Запись отзыв от пользователя: start")
+    saveUserReview(userReview)
+    //alert("Запись отзыв от пользователя: finish")   
+}
+function ShowUserReview(usrRev) {
+    alert("Отзыв от пользователя: " + usrRev["userName"] + " Создан: " + usrRev["createDate"] + "\n Текст отзыва : " + usrRev["userText"]);
+}
+/*     
+function saveUserReview(usrRev) {
+    alert("Отзыв от пользователя: " + usrRev["userName"] + " Создан: " + usrRev["createDate"] + "\n Текст отзыва : " + usrRev["userText"]);
+}
+*/
+const saveUserReview =  review => {
+    document.getElementsByClassName('reviews')[0].innerHTML += '    <div class="review-text">\n' +
+        `<p> <i> <b>${review['userName']}</b>  ${review['createDate']}</i></p>` +
+        `<p>${review['userText']}</p>` +
+        '</div>';
 }
