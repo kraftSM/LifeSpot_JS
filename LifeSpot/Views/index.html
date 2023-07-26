@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeSpot</title>
+    <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
+    <script  src = "../Static/JS/index.js" type = "text/javascript" defer ></script> 
+
+</head>
+<header id="header-id">
+    <h1>LifeSpot - прямые трансляции с улиц</h1>
+    <p>Покажем, что происходит прямо сейчас</p>
+
+    <!--Кнопки
+    <button>Москва</button>
+    <button>Нью-Йорк</button>
+    <button>Лондон</button>-->
+    <div class="search-container">
+        Поиск/search...
+        <!--Поле ввода -->
+        <input id="search-id" name="Search" type="text" value="Найти что-бы посмотреть..." />
+
+        </divclass="search-container">
+</header>
+<!--SIDEBAR-->
+
+<body>
+    <div>
+        <!--Кнопки, обернутые в ссылки
+        <a href="https://www.youtube.com/embed/41_N0dmjQyA"><button>Санкт-Петербург, отель Indigo</button></a>
+        <a href="https://www.youtube.com/embed/srlpC5tmhYs"><button>Нью-Йорк, Брайант Парк</button></a>
+        <a href="https://www.youtube.com/embed/h1wly909BYw"><button>Санкт-Петербург, Невский Проспект</button></a>
+                -->
+        <p>Приветствуем на LifeSpot</p>
+    </div>
+    <!--  iframe''ы in TABLE -->
+    <table class="bordered">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="video-container">
+                        <h3 class="video-title">Санкт-Петербург, отель Indigo (LIVE)</h3>
+                        <iframe width="400" height="250" src="https://www.youtube.com/embed/41_N0dmjQyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                    </div>
+                </td>
+                <td>
+                    <div class="video-container">
+                        <h3 class="video-title">Нью-Йорк, Брайант Парк (LIVE)</h3>
+                        <iframe width="400" height="250" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="video-container">
+                        <iframe width="400" height="250" src="https://www.youtube.com/embed/h1wly909BYw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h3 class="video-title">Санкт-Петербург, Невский Проспект (LIVE)</h3>
+                    </div>
+                </td>
+                <td>
+                    <div class="video-container">
+                        <iframe width="400" height="250" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h3 class="video-title">Лондон, автобусный маршрут (REC)</h3>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- чистые iframe''ы
+                <div class="video-container">
+                    <h3 class="video-title">Санкт-Петербург, отель Indigo</h3>
+                    <iframe width="400" height="250" src="https://www.youtube.com/embed/41_N0dmjQyA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <h3 class="video-title">Нью-Йорк, Брайант Парк</h3>
+                    <iframe width="400" height="250" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe width="400" height="250" src="https://www.youtube.com/embed/h1wly909BYw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3 class="video-title">Санкт-Петербург, Невский Проспект</h3>
+                </div>
+                <div class="video-container">
+                    <iframe width="400" height="250" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3 class="video-title">Лондон, автобусный маршрут</h3>
+                </div>
+    -->
+</body>
+<!--FOOTER-->
+
+</html>
