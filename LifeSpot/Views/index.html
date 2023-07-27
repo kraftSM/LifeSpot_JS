@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
-    <script  src = "../Static/JS/index.js" type = "text/javascript" defer ></script> 
+    <!-- Внешнний скрипт с определениями функций [ подключаемая библиотека :) ] -->
+    <!--<script  src = "../Static/JS/index.js" type = "text/javascript" defer ></script> // NB defer!!! -->
+    <script src="../Static/JS/index.js" type="text/javascript"></script>
+
+    <!-- Внутренний скрипт с вызовами функций (с объектами, но без замыкания функций) + парная часть в index.js
+    <script>
+        let session = handleSessionInLine(); // Создадим и обработаем сессию
+        sessionLog(session) // Логируем в консоль.
+    </script>
+        -->
+    <!-- Внутренний скрипт с вызовами функций (с объектами, в замыкания функций) + парная часть в index.js -->
+    <script>
+        // Проверка на возраст
+        // checkAge();
+        // сохранение сессии
+        handleSession()
+        // вывод данных сессии в консоль
+        sessionLog();
+        // функция для получения пользовательского ввода - корректировака строчных букв в поиске
+        //const inputParseFunction = function () {
+        //    return document.getElementsByTagName('input')[0].value.toLowerCase();
+        //}
+    </script>
 
 </head>
+
 <header id="header-id">
     <h1>LifeSpot - прямые трансляции с улиц</h1>
     <p>Покажем, что происходит прямо сейчас</p>
-
+    <input type="text" oninput="filterContent( document.getElementsByTagName('input')[0].value.toLowerCase() /* Аргумент - значение, введённое пользователем*/ )" size=50%>
     <!--Кнопки
     <button>Москва</button>
     <button>Нью-Йорк</button>
     <button>Лондон</button>-->
+    <!-- мое поле для ввода поиска (пока скрываем)
     <div class="search-container">
         Поиск/search...
-        <!--Поле ввода -->
-        <input id="search-id" name="Search" type="text" value="Найти что-бы посмотреть..." />
+        //Поле ввода 
+    <input id="search-id" name="Search" type="text" value="Найти что-бы посмотреть..." />
 
-        </divclass="search-container">
+    </divclass="search-container">
+    -->
 </header>
 <!--SIDEBAR-->
-
 <body>
     <div>
         <!--Кнопки, обернутые в ссылки

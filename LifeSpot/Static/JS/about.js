@@ -1,4 +1,35 @@
-﻿function GetUserReturn() {
+﻿//Сообщение подгрузки скрипта FOR DEBUG only
+//alert("Приветствуем на LifeSpot! сегодя: " + new Date().toLocaleString());
+
+let usrReview = new Map();
+usrReview["userName"] = "testName";
+usrReview["userText"] = "userText";
+usrReview["createDate"] = new Date().toLocaleString();
+
+function setReviewUserName(usrName) {
+    if (!isEmpty(usrName))
+        usrReview["userName"] = usrName; 
+}
+function ClearUserReview() {
+    let clrVal1 = "-";
+    document.getElementById('txtUserName').value = clrVal1;
+    usrReview["userName"] = clrVal1;
+    let clrVal2 = "--";
+    document.getElementById('txtReviewText').value = clrVal2;
+    usrReview["userText"] = clrVal2;
+
+    usrReview["createDate"] = new Date().toLocaleString();
+} 
+
+function setReviewText(revText) {
+    if (!isEmpty(revText))
+        usrReview["userText"] = revText;
+    }
+function showUserReviewObj() {  
+    ShowUserReview(usrReview);
+}
+
+function GetUserReturn() {
     userName = GetUserName();
     //alert("Приветствуем на LifeSpot! " + userName);
     userText = GetUserText(userName);    
@@ -17,7 +48,39 @@ function GetUserName() {
         return usrName;
     }
 }
+function toggleElementVisibility(element) {
+    if (element.style.visibility == 'hidden')
+        element.style.visibility = 'visible'
+    else element.style.visibility = 'hidden';
+}
 
+    function toggleRewPanel() {
+
+    let element = document.getElementById('review-edit-elements');
+        toggleElementVisibility(element);
+    //toggleReviews();
+}
+function hideRewPanel() {
+    //alert("Hide elements: ");
+    let elements = document.getElementsByClassName('review-editors');
+    //alert("Hide  " + elements.length + " elements ");
+
+    for (let i = 0; i <= elements.length; i++) {
+        elements[i].style.visibility = 'hidden';
+    }
+
+}
+function toggleReviews() {
+    alert("toggleReviews() ");
+
+    let element = document.getElementsByClassName('reviews');
+    alert("toggleReviews "+element.length);
+    element[0].visibility = 'hidden';
+
+//    toggleElementVisibility(element);
+    //
+}
+ 
 function GetUserReview() {
     // Создадим объект    
     let userReview = {}
@@ -47,6 +110,10 @@ function saveUserReview(usrRev) {
     alert("Отзыв от пользователя: " + usrRev["userName"] + " Создан: " + usrRev["createDate"] + "\n Текст отзыва : " + usrRev["userText"]);
 }
 */
+function saveObj2Reviews() {
+    saveUserReview(usrReview);
+}
+
 const saveUserReview =  review => {
     document.getElementsByClassName('reviews')[0].innerHTML += '    <div class="review-text">\n    <div id="review-user" ' +
         `<p> <i> <b>${review['userName']}</b>  ${review['createDate']}</i></p>` + 

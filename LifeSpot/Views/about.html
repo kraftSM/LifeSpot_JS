@@ -18,23 +18,33 @@
     <p>Тестовое задание для ознакомления с HTML, CSS, JavaScript...</p>
     <p>HTML: Юнит 26</p>
     <p>CSS:  Юнит 27</p>
-    <p>JavaScript:  Юнит 28</p>
+    <p>JavaScript:  Юнит 28,29</p>
     <p>И ничего более ...</p>
 
     <div class="reviews-panel">
         <div class="review-button">
-            <!--<button>Оставить отзыв </button>-->
-            <!-- <p><input type="button" value="Отзыв" onclick="GetUserRet()"></p> -->
-            <input type="button" value="Отзыв" onclick="GetUserReview()">
+            <!--<input type="button" id="btnGetReview" value="Написать отзыв" onclick="GetUserReview()"> <p></p> -->
+            <input type="button" id="btnWorkingReview" value="Работа с отзывами (показать/скрыть)" onclick="toggleRewPanel()">
         </div>
-        <div class="reviews">
-            <div class="review-text">
-                <div id="review-user" 
+        <div class="review-editors" id="review-edit-elements">
+            <!--<button>Оставить отзыв </button>-->
+            <!-- <p><input type="button" value="Отзыв" onclick="GetUserRet()"><span id="status" value="status"> </span></p> -->
+            <input type="button" id="btnSave" value="Сохранить отзыв" onclick="GetUserReview()" />
+            <input type="button" id="btnObjSave" value="Сохранить  отзыв (Obj)" onclick="saveObj2Reviews()" />
+            <input type="button" id="btnInput" value="Вывести отзыв (Obj)" onclick="showUserReviewObj()" />
+            <input type="button" id="btnCancel" value="Очистить отзыв" onclick="ClearUserReview()" />
+            <p>Ваше имя <input type="text" id="txtUserName" value="Ваше имя для отзыва" oninput="setReviewUserName(document.getElementById('txtUserName').value)" /> </p>
+            <p>Текст отзыва <input type="text" id="txtReviewText" value="Ваш отзыв..." oninput="setReviewText(document.getElementById('txtReviewText').value)" /> </p>
+
+            <div class="reviews">
+                <div class="review-text">
+                    <div id="review-user"
                     <p> <i> <b>Иван</b>  2023-07-25, 17:15:22 </i></p>
                  </div>
-                <div>
-                    <p> Мой отзыв. Я так скажу - баловство все это ..... </p>
-                 </div>                
+                    <div>
+                        <p> Мой отзыв. Я так скажу - баловство все это ..... </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

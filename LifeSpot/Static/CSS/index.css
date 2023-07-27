@@ -78,6 +78,20 @@ aside {
 }
 /* Стили списка отзыва, для полей отзыва подобран формат, но это на любителя..
     По- хорошему нужен художник... */
+.reviews {
+    /*visibility: hidden;
+    
+        visibility: hidden;
+    display: none;
+    display: inline-block;*/
+}
+.review-editors {
+    visibility: visible;
+    /*
+        visibility: hidden;
+    display: none;
+    display: inline-block;*/
+}
 .review-container, .review-button {
     display: inline-block;
     color: darkblue;
