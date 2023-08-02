@@ -20,15 +20,24 @@ namespace LifeSpot
         const string MapPath_CSS = "/Static/CSS/";
         const string MapPath_JS = "/Static/JS/";
 
-        static string Build_MappingName(string rqFileName)// пока для .html только 
+        static string Build_MappingName(string rqFileName)// пока для .html только (может и не только пока...)
         {
             StringBuilder MappingName = new StringBuilder();
             MappingName.Append(MapPath_HTML);
             if (rqFileName != "index.html") MappingName.Append((rqFileName.Substring(0, rqFileName.Length - 5))); // 5=".html" 
             return MappingName.ToString();
         }
+
         // //думаю следует (было бы хорошо) сканировать проект для поиска -CSS,-JS,,, файлов с именм совпадающим с именем страницы и
         // //через специальную фунцию построения BuildHTML() вставлять их на страницу вместо "<!--CSS-->" "<!--JS-->" (аналогично ("<!--SIDEBAR-->")
+        // но для этого надо ещё класс доработать
+        //static string Build_HtmlFile(StringBuilder targetFile)// пока для .html только (может и не только пока...)
+        //{
+        //    targetFile.Replace("<!--FOOTER-->", footerHtml);
+        //    //MappingName.Append(MapPath_HTML);
+        //    //if (rqFileName != "index.html") MappingName.Append((rqFileName.Substring(0, rqFileName.Length - 5))); // 5=".html" 
+        //    //return MappingName.ToString();
+        //}
 
         public static void MapHtml(this IEndpointRouteBuilder builder)
         {
