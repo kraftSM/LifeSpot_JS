@@ -20,6 +20,16 @@ namespace LifeSpot
         const string MapPath_CSS = "/Static/CSS/";
         const string MapPath_JS = "/Static/JS/";
 
+        static string Build_MappingName(string rqFileName)// пока для .html только 
+        {
+            StringBuilder MappingName = new StringBuilder();
+            MappingName.Append(MapPath_HTML);
+            if (rqFileName != "index.html") MappingName.Append((rqFileName.Substring(0, rqFileName.Length - 5))); // 5=".html" 
+            return MappingName.ToString();
+        }
+        // //думаю следует (было бы хорошо) сканировать проект для поиска -CSS,-JS,,, файлов с именм совпадающим с именем страницы и
+        // //через специальную фунцию построения BuildHTML() вставлять их на страницу вместо "<!--CSS-->" "<!--JS-->" (аналогично ("<!--SIDEBAR-->")
+
         public static void MapHtml(this IEndpointRouteBuilder builder)
         {
             // Загружаем отдельные элементы для вставки в шаблон: боковое меню и футер
@@ -32,10 +42,7 @@ namespace LifeSpot
             foreach (var fileName in srcFiles)
             {
                 //build MapPath, then mapping
-                if (fileName == "index.html")
-                    MapPath = MapPath_HTML; 
-                else MapPath = MapPath_HTML + fileName.Substring(0, fileName.Length - 5); // 5=".html"                    
-                ;
+                MapPath = Build_MappingName(fileName);
                 builder.MapGet(MapPath, async context =>
                 {
                     var srcPath = Path.Combine(Directory.GetCurrentDirectory(), Path_HTML, fileName);
@@ -50,6 +57,7 @@ namespace LifeSpot
                 });
             }
 
+            //Пример того что заменялось для HTML-страниц
             //builder.MapGet("/", async context =>
             //{
             //    var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
@@ -59,22 +67,10 @@ namespace LifeSpot
             //    var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
             //        .Replace("<!--SIDEBAR-->", sideBarHtml)
             //        .Replace("<!--FOOTER-->", footerHtml);
-
             //    await context.Response.WriteAsync(html.ToString());
             //});
 
-            //builder.MapGet("/testing", async context =>
-            //{
-            //    var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "testing.html");
-
-            //    // Загружаем шаблон страницы, вставляя в него элементы
-            //    var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
-            //        .Replace("<!--SIDEBAR-->", sideBarHtml)
-            //        .Replace("<!--FOOTER-->", footerHtml);
-
-            //    await context.Response.WriteAsync(html.ToString());
-            //});
-
+ 
             //builder.MapGet("/about", async context =>
             //{
             //    var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
@@ -90,51 +86,7 @@ namespace LifeSpot
             //    await context.Response.WriteAsync(html.ToString());
             //});
         }
-
-        // Загружаем отдельные элементы для вставки в шаблон: боковое меню и футер
-        //string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "footer.html"));
-        //string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "sideBar.html"));           
-        //app.UseEndpoints(endpoints =>
-        //{
-
-        //    endpoints.MapGet("/", async context =>
-        //    {
-        //        var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
-        //        var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
-        //            .Replace("<!--SIDEBAR-->", sideBarHtml)
-        //            .Replace("<!--FOOTER-->", footerHtml);
-
-        //        await context.Response.WriteAsync(html.ToString());
-        //    });
-        //    endpoints.MapGet("/about", async context =>
-        //    {
-        //        var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
-        //        var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
-        //            .Replace("<!--SIDEBAR-->", sideBarHtml)
-        //            .Replace("<!--FOOTER-->", footerHtml);
-
-        //        await context.Response.WriteAsync(html.ToString());
-        //    });
-        //    endpoints.MapGet("/test", async context =>
-        //    {
-        //        var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "test.html");
-        //        var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
-        //            .Replace("<!--SIDEBAR-->", sideBarHtml)
-        //            .Replace("<!--FOOTER-->", footerHtml);
-
-        //        await context.Response.WriteAsync(html.ToString());
-        //    });           
-        //     endpoints.MapGet("/testing", async context =>
-        //    {
-        //        var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "testing.html");
-
-        //        // Загружаем шаблон страницы, вставляя в него элементы
-        //        var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
-        //            .Replace("<!--SIDEBAR-->", sideBarHtml)
-        //            .Replace("<!--FOOTER-->", footerHtml);
-
-        //        await context.Response.WriteAsync(html.ToString());
-        //    });
+ 
         public static void MapCss(this IEndpointRouteBuilder builder)
         {
             var srcFiles = new[] { "index.css" }; //массив с именами CSS-файлов, инициализируем  по месту
@@ -150,6 +102,13 @@ namespace LifeSpot
                 });
             }
         }
+        //    endpoints.MapGet("/Static/CSS/index.css", async context =>
+        //    {
+        //        var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", "index.css");
+        //        var css = await File.ReadAllTextAsync(cssPath);
+        //        await context.Response.WriteAsync(css);
+        //    });
+ 
        public static void MapJs(this IEndpointRouteBuilder builder)
         {
             var srcFiles = new[] { "index.js", "about.js" };  //массив с именами JS-файлов, инициализируем по месту
@@ -165,13 +124,7 @@ namespace LifeSpot
                 });
             }
         }
-        //    endpoints.MapGet("/Static/CSS/index.css", async context =>
-        //    {
-        //        var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", "index.css");
-        //        var css = await File.ReadAllTextAsync(cssPath);
-        //        await context.Response.WriteAsync(css);
-        //    });
- 
+
         //    endpoints.MapGet("/Static/JS/index.js", async context =>
         //    {
         //        // Для JS настроим всё так же, как уже сделали для CSS выше.
