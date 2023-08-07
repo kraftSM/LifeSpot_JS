@@ -31,7 +31,7 @@ namespace LifeSpot
         // //думаю следует (было бы хорошо) сканировать проект для поиска -CSS,-JS,,, файлов с именм совпадающим с именем страницы и
         // //через специальную фунцию построения BuildHTML() вставлять их на страницу вместо "<!--CSS-->" "<!--JS-->" (аналогично ("<!--SIDEBAR-->")
         // но для этого надо ещё класс доработать
-        //static string Build_HtmlFile(StringBuilder targetFile)// пока для .html только (может и не только пока...)
+        //static void Build_HtmlFile(out StringBuilder  targetFile)// пока для .html только (может и не только пока...)
         //{
         //    targetFile.Replace("<!--FOOTER-->", footerHtml);
         //    //MappingName.Append(MapPath_HTML);
@@ -44,6 +44,7 @@ namespace LifeSpot
             // Загружаем отдельные элементы для вставки в шаблон: боковое меню и футер
             string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), Path_ElementsHTML, "footer.html"));
             string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), Path_ElementsHTML, "sidebar.html"));
+            string sliderHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), Path_ElementsHTML, "slider.html"));
 
             var srcFiles = new[] { "index.html", "about.html", "testing.html", "test.html" }; //массив с именами HTML-файлов, инициализируем  по месту
             string MapPath;
@@ -58,9 +59,8 @@ namespace LifeSpot
                     //Загружаем шаблон страницы, вставляя в него элементы
                         var html = new StringBuilder(await File.ReadAllTextAsync(srcPath))
                             .Replace("<!--SIDEBAR-->", sideBarHtml)
-                            .Replace("<!--FOOTER-->", footerHtml);
-                    // Добавим для загрузки слайдера                            
-                    //.Replace("<!--SLIDER-->", sliderHtml);
+                            .Replace("<!--FOOTER-->", footerHtml)                             
+                            .Replace("<!--SLIDER-->", sliderHtml);// Добавим для загрузки слайдера
 
                     await context.Response.WriteAsync(html.ToString());
                 });
@@ -98,7 +98,7 @@ namespace LifeSpot
  
         public static void MapCss(this IEndpointRouteBuilder builder)
         {
-            var srcFiles = new[] { "index.css" }; //массив с именами CSS-файлов, инициализируем  по месту
+            var srcFiles = new[] { "index.css", "slider.css" }; //массив с именами CSS-файлов, инициализируем  по месту
             string MapPath;
             foreach (var fileName in srcFiles)
             {
@@ -120,7 +120,7 @@ namespace LifeSpot
  
        public static void MapJs(this IEndpointRouteBuilder builder)
         {
-            var srcFiles = new[] { "index.js", "about.js" };  //массив с именами JS-файлов, инициализируем по месту
+            var srcFiles = new[] { "index.js", "about.js", "slider.js" };  //, "test.js" массив с именами JS-файлов, инициализируем по месту
             string MapPath;
             foreach (var fileName in srcFiles)
             {                

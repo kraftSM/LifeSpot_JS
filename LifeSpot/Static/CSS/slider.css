@@ -1,0 +1,30 @@
+﻿
+/* Стили слайдера */
+.slider-panel {
+    display: inline-block;
+    /*margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;*/
+    /*color: darkblue;*/
+    /*border: 2px solid blue;*/
+    color: blue;
+}
+
+.slider-img, .slider-button {
+    display: inline-block;
+    /*margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;*/
+    /*color: darkblue;*/
+    /*color: blue;*/
+    border: 2px solid aliceblue;
+}    /* Стили панели при наведении мышью */
+    .slider-img:hover, .slider-button:hover {
+        display: inline-block;
+        /*margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;*/
+        /*color: darkblue; darkred*/
+        /*color: blue;*/
+        border: 2px solid darkblue;
+    }

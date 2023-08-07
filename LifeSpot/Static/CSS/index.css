@@ -59,6 +59,15 @@ aside {
         color: aliceblue; /*aliceblue darkblue cadetblue darkgray*/
     }
 
+/* Стили слайдера */
+.slider-panel {
+    display: inline-block;
+    /*margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;*/
+    /*color: darkblue;*/
+    color: blue;
+}
 /* Стили панели(?) поиска */
 .search-container {
     display: inline-block;
