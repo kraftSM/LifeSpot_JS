@@ -1,18 +1,28 @@
 ﻿<!--<p>===> Слайдер <===</p>-->
 <link href="../Static/CSS/slider.css" rel="stylesheet" type="text/css">
 <script src="../Static/JS/slider.js" type="text/javascript"></script>
-<div class="slider-panel">
+<div class="slider-panel" >
     <span class="slider-button">
         <!--<input type="button" id="btnSliderPrv" value="Prev Image " onclick=" alert('Prev Image')">-->
-        <input type="button" id="btnSliderPrev" value="Prev Image " onclick="btnPrevClick()">
+        <input type="button" id="btnSliderPrev"  value="<<" onclick="btnPrevClick()">
     </span>
-    <span class="slider-img"> Slider image 1 </span>
-    <span class="slider-img"> Slider image 2 </span>
-    <span class="slider-img"> Slider image 3 </span>
+    <span class="slider-img" >
+        <!--<img src="./Static/Images/1.jpg" style="width:50%" alt="Slider image 1" img>-->
+        <img src="/Static/Images/1.jpg" style="width:100%"  alt="Slider image 1" img>
+        <text> SliderImage1</text>
+    </span>
+    <span class="slider-img">
+        <img src="/Static/Images/2.jpg"  style="width:100%"  alt="Slider image 2" img>
+        <text> SliderImage2</text>
+    </span>
+    <span class="slider-img">
+        <img src="/Static/Images/3.jpg" style="width:100%"  alt="Slider image 3" img>
+        <text> SliderImage3</text>
+    </span>
  
     <span class="slider-button">
         <!--<input type="button" id="btnSliderNxt" value="Next Image " onclick="toggleRewPanel()">-->
         <!--<input type="button" id="btnSliderNxt" value="Next Image " onclick=" alert('Next Image')">-->
-        <input type="button" id="btnSliderNext" value="Next Image " onclick="btnNextClick()">
+        <input type="button" id="btnSliderNext" value=">>" onclick="btnNextClick()">
     </span>
 </div>

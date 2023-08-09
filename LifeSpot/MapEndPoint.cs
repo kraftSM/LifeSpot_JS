@@ -10,6 +10,7 @@ namespace LifeSpot
     public static class MapEndPoint
     {   //пока настраиваю через константы
         //расположение scr in File System - Должно сооветствовать расположению статических подключаемых файлов в проекте
+        const string Path_IMG = "Static/Img"; 
         const string Path_CSS = "Static/CSS";
         const string Path_JS = "Static/JS";
         const string Path_HTML = "Views";
@@ -19,6 +20,7 @@ namespace LifeSpot
         const string MapPath_HTML= "/"; 
         const string MapPath_CSS = "/Static/CSS/";
         const string MapPath_JS = "/Static/JS/";
+        const string MapPath_IMG = "/Static/Img/";
 
         static string Build_MappingName(string rqFileName)// пока для .html только (может и не только пока...)
         {
@@ -95,7 +97,23 @@ namespace LifeSpot
             //    await context.Response.WriteAsync(html.ToString());
             //});
         }
- 
+
+        //public static void MapImages(this IEndpointRouteBuilder builder)
+        //{
+        //    var srcFiles = new[] { "1.jpg", "2.jpg", "3.jpg" }; //массив с именами CSS-файлов, инициализируем  по месту
+        //    string MapPath;
+        //    foreach (var fileName in srcFiles)
+        //    {
+        //        MapPath = MapPath_IMG + fileName; //build MapPath, then mapping
+        //        builder.MapGet(MapPath, async context =>
+        //        {
+        //            var srcPath = Path.Combine(Directory.GetCurrentDirectory(), Path_IMG, fileName);
+        //            var resurcePath = await File.ReadAllTextAsync(srcPath);
+        //            await context.Response.WriteAsync(resurcePath);
+        //        });
+        //    }
+        //}
+
         public static void MapCss(this IEndpointRouteBuilder builder)
         {
             var srcFiles = new[] { "index.css", "slider.css" }; //массив с именами CSS-файлов, инициализируем  по месту

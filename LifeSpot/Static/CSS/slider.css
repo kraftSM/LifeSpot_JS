@@ -8,23 +8,61 @@
     /*color: darkblue;*/
     /*border: 2px solid blue;*/
     color: blue;
+    padding: 5px;
+    
 }
 
-.slider-img, .slider-button {
+.slider-button {
+    /*display: inline-block;*/
+    top: 50%;
+    width: auto;
+    /*margin-top: -22px;*/
+    /*padding: 16px;*/
+    color: darkred;
+    /*color: white;*/
+    /*margin-top: 0.5em;
+    
+    padding-top: 1%;*/
+    /*color: darkred darkblue;*/
+    /*color: blue;*/
+    padding: 2px;
+    border: 2px solid aliceblue;
+    /*height: 100%;*/
+}
+
+    .slider-button:hover {
+        /*display: inline-block;*/
+        /*margin-top: 0.5em;    
+    padding-top: 1%;*/
+        /*color: darkred darkblue;*/
+        /*color: blue;*/
+        padding: 2px;
+        border: 2px solid darkred;
+    }
+
+.slider-img {
     display: inline-block;
     /*margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;*/
-    /*color: darkblue;*/
+    /*color: aliceblue;*/
+    /*width: 25%;*/
     /*color: blue;*/
+    width: 250px;
     border: 2px solid aliceblue;
-}    /* Стили панели при наведении мышью */
-    .slider-img:hover, .slider-button:hover {
+}
+    /* Стили панели при наведении мышью */
+    .slider-img:hover {
         display: inline-block;
-        /*margin-top: 0.5em;
+        width: 300px;
+        -webkit-transition: all;
+        -webkit-transition-duration: 500ms;
+        /*width: 30%;
+        margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;*/
         /*color: darkblue; darkred*/
         /*color: blue;*/
-        border: 2px solid darkblue;
+        color: darkblue;
+        border-bottom: 2px solid darkblue;
     }
