@@ -11,10 +11,10 @@ function setReviewUserName(usrName) {
         usrReview["userName"] = usrName; 
 }
 function ClearUserReview() {
-    let clrVal1 = "-";
+    let clrVal1 = "";
     document.getElementById('txtUserName').value = clrVal1;
     usrReview["userName"] = clrVal1;
-    let clrVal2 = "--";
+    let clrVal2 = "";
     document.getElementById('txtReviewText').value = clrVal2;
     usrReview["userText"] = clrVal2;
 

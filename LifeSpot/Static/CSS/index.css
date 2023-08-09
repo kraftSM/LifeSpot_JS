@@ -43,14 +43,16 @@ aside {
     z-index: 1; /* Сайд-бар будет поверх остальных элементов */
     top: 0; /* Сайдбар будет в самой верхней части страницы */
     left: 0;
-    background-color: cadetblue ; /* Черный цвет фона не хочу = #111(задан в виде кода) */
+    background-color: cadetblue; /* Черный цвет фона не хочу = #111(задан в виде кода) */
     overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
     padding-top: 3%;
     font-size: large;
+    position: absolute;
 }
 
 /* Стили панели навигации */
 .navbar p {
+    
     color: darkblue;
     padding-left: 15%;
 }
