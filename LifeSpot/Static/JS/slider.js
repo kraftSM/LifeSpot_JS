@@ -7,8 +7,9 @@ let startDrugIndex = 0; // начальный индекс перетаскив�
 let stoptDropIndex = 0; // финальный индекс отпускаемой картинки ==0 нет события
 let deltaIndexDaD = stoptDropIndex - startDrugIndex; // итоговая дельта листания by drug'and'drop ==0 -> обработаем как click на Image
 let sliderOperation = "None"; //
+
 //setSliderImages();
-refresSlider(sliderIndex);
+//refreshSlider();
 
 // последущая функция эквивалентна refresSliderIndex(+1) оставлена для кнопки
 function sliderNext() {
@@ -26,22 +27,22 @@ function imgClick(dir) {
     if (dir == 0) sliderIndex = 1 + (sliderIndex + sliderCount -1) % imageCount ; // == 0 промотать на весь sliderCount
     if (dir < 0) sliderPrev();
 
-    refresSlider(sliderIndex);
+    refresSlider();
 }
 function btnNextClick() {
     sliderNext();
     //alert("btnNextClick " + sliderIndex);
-    refresSlider(sliderIndex);
+    refreshSlider();
 }
 function btnPrevClick() {
     sliderPrev();
     //alert("btnPrevClick " + sliderIndex);
-    refresSlider(sliderIndex);
+    refreshSlider();
 }
 function setSliderImages() {    
     alert("setSliderImages") ;
 }
-function refresSliderIndex(idxDelta) {
+function refreshSliderIndex(idxDelta) {
     if (idxDelta > 0) {
         sliderIndex += idxDelta;
         if (sliderIndex > imageCount) sliderIndex -= imageCount;
@@ -52,104 +53,95 @@ function refresSliderIndex(idxDelta) {
         sliderIndex += idxDelta;
         if (sliderIndex <= 0) sliderIndex += imageCount;
     }
-    //alert("refresSliderIndex:"+ idxDelta);
-    refresSlider(sliderIndex);
+    //alert("refresSliderIndex:" + idxDelta);
+    console.log("refresSliderIndex:" + idxDelta);
+    refreshSlider();
 }
-function refresSlider(curIdx) {
+
+function refreshSliderInfo() {
+    //alert("refreshSlider:sliderInfoLine1");
+    let sliderInfoTxt = document.getElementById("sliderInfoLine");
+    let infoText = "sliderInfo| slideCnt:" + sliderCount + " Image:" + sliderIndex + " of " + imageCount + " | Operation:" + sliderOperation; 
+    sliderInfoTxt.textContent = infoText;
+    //console.log(infoText);
+}
+function refreshSlider() {
     let sliderText = "";
     let sliderNewText = "+";
     let sliderIdx = sliderIndex;
     let sliderImagePref = "/Static/Images/";
     let sliderImageName = "";
 
-    //alert("refreshSlider:sliderInfoLine1");    
-    let sliderInfo = document.getElementById("sliderInfoLine");
-    sliderInfo.textContent = "sliderInfo| slideCnt:" + sliderCount + " Image:" + sliderIndex + " of " + imageCount + " | Operation:" + sliderOperation;
+    console.log('refreshSliderInfo() -1');
+    //refreshSliderInfo();
 
-    //alert("refreshSlider" + curIdx);
-    // Находим слайдеры, которые необходимо обновить
+    ////alert("refreshSlider" + curIdx);
+    //// Находим слайдеры, которые необходимо обновить
     let elements = document.getElementsByClassName('slider-img');
-    //alert("refreshSlider elements.length" + elements.length);
+    ////alert("refreshSlider elements.length" + elements.length);
+    ////console.log("refreshSlider elements.length" + elements.length);
+    //console.log(elements);
 
-    //// Пробегаемся по слайдеру
-    for (let i = 0; i <= elements.length; i++) {
+    //// Пробегаемся по слайдеру    
+
+    for (let i = 0; i <= elements.length; i++)
+    {
         //alert("refresSlider " + i);
-        //sliderText = elements[i].querySelector("text").textContent;
+
+        console.log('sliderText-0');
+        
+        //console.log('sliderText-1');
         sliderText = elements[i].querySelector("text").textContent;
         sliderIdx = ((sliderIndex + i - 1) % imageCount);// индекс элемента в текущем слайдере
         //alert("refresSlider i:" + i+" refresSlider isliderIdx:" + sliderIdx);
         //далее следует брать ImgName  & ImgText из ранее сформированого массива-0based (или БД) [ImagePath:ImageCaption]
         //для учебных задачприписываем  ImgName=sliderIdx".jpg"  & ImgText="SliderImage"+sliderIdx
 
-        sliderIdx += 1;//для учебных задач +1(наш массив is-1based) by design
-        sliderNewText = sliderText.substring(0, (sliderText.length - 1)) + sliderIdx;
+        sliderIdx += 1;//для this задач +1(наш массив is-1based) by design        
         sliderImageName = sliderImagePref + sliderIdx + ".jpg";
+        sliderNewText = sliderText.substring(0, (sliderText.length - 1)) + sliderIdx;
 
         //alert("refresSlider " + sliderText + ">->" + sliderNewText + ":img->" + sliderImageName);
+
+        console.log("refreshSlider| " + sliderText + ">->" + sliderNewText + ":img->" + sliderImageName);
         elements[i].querySelector("text").textContent = sliderNewText;
         elements[i].querySelector("img").src = sliderImageName;
     }
-
-
-
+    console.log('refreshSliderInfo() -2'); // эта строка никогда не вызывается.ПОЧЕМУ??
+    //refresSliderInfo();
+}
+function itemMouseDown() {
+    //console.log('itemMouseDown =+=' );
+    //console.log('itemMouseDown' this);
+    console.log('itemMouseDown =-=');
+}
+function itemMouseUp() {
+    //console.log('itemMouseDown =+=');
+    //console.log('itemMouseDown' this);
+    console.log('itemMouseUp =-=');
+}
+function getEventType(event) {
+    //const log = document.getElementById("log");
+    //log.innerText = `${event.type}\n${log.innerText}`;
+    console.log('getEventType(event)'+ event);
 }
 
-    ////move by mouse
-    //let initMouseX;
-    //var currSlide = 1;
-    //let isMonitored;
-    //let distance = 0;
-    //let slides = document.getElementsByClassName("slider-img");
+refreshSlider();
+console.log('start MouseListener Section');
 
-    //function startListen() {
-    //    console.log('startListen');
-    //    showSlides(currSlide);
-    //    ssContainer = document.getElementById('slider-panel');
+//    //move by mouse
 
-    //    ssContainer.addEventListener('mousedown', (event) => {
-    //        event.preventDefault();
-    //        console.log('mouse is down');
-    //        isMonitored = true;
-    //        initMouseX = event.clientX;
-    //        ssContainer.addEventListener('mousemove', (e) => {
-    //            let currentMouseX = e.clientX;
-    //            if (isMonitored) {
-    //                distance = currentMouseX - initMouseX;
-    //                let trans = 'translateX(' + distance + 'px)';
-    //                for (i = 0; i < slides.length; i++) {
-    //                    if (slides[i].style.display == "block") {
-    //                        currSlide = i + 1;
-    //                    }
-    //                }
+//let slides = document.getElementsByClassName("slider-img");
+//console.log(slides);
 
-    //                slides[currSlide - 1].style.transform = trans;       //"translateX(100px)";
-    //                if (currentMouseX - initMouseX < -200) {
-    //                    initMouseX = currentMouseX;
-    //                    plusSlides(1);
-    //                    currSlide += 1;
-    //                    if (currSlide > 4) { currSlide = 1 }
-    //                }
-    //                if (currentMouseX - initMouseX > 200) {
-    //                    initMouseX = currentMouseX;
-    //                    plusSlides(-1);
-    //                    currSlide -= 1;
-    //                    if (currSlide < 1) { currSlide = 4 }
-    //                }
-    //            }
-    //        });
-    //        ssContainer.addEventListener('mouseup', (e) => {
-    //            isMonitored = false;
-    //            slides[currSlide - 1].style.transform = "";
-    //        });
+//let slidePanel = document.getElementById('sliderIm-pn');  
+//slidePanel.onmousedown = itemMouseDown;
+//slidePanel.addEventListener("mouseup", itemMouseUp, false);
+//console.log(slidePanel);
 
-    //        ssContainer.addEventListener('mouseleave', (e) => {
-    //            isMonitored = false;
-    //            slides[currSlide - 1].style.transform = "";
-    //        });
+//slidePanel.addEventListener("mousedown", itemMouseDown, false);
+//console.log(slidePanel);
+//slidePanel.addEventListener("mousedown", getEventType, false); // first
 
 
-    //    });
-
-    //    ssContainer.addEventListener('mouseup', (evt) => { evt.preventDefault(); console.log('mouse is up'); });
-    // }
-//}
+//refreshSlider();
