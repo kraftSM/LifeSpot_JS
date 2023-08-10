@@ -3,6 +3,7 @@
 .slider-panel {
     /*display: inline-block;*/
     position: relative;
+    width: 100%;
     /*margin-top: 0.5em;
     padding-left: 1%;
     padding-top: 1%;*/
@@ -12,11 +13,20 @@
     padding: 5px;
 }
 
+.slider-info {
+    width: 100%;
+    /*border: 2px solid red;*/
+    margin-top: 2px;
+    border-top: 2px solid grey;
+    padding-top: 4px;
+}
+
 .slider-button {
     /*display: inline-block;*/
-    
-    width: auto;
-    /*margin-top: -22px;*/
+    /*width: auto;*/
+    width: 30px;
+    height: 15px;
+    margin: 4px; /**/
     /*padding: 16px;*/
     color: darkred;
     /*color: white;*/
@@ -25,6 +35,7 @@
     padding-top: 1%;*/
     /*color: darkred darkblue;*/
     /*color: blue;*/
+    margin: 4px;
     padding: 2px;
     border: 2px solid aliceblue;
     /*height: 100%;*/
@@ -36,7 +47,23 @@
     padding-top: 1%;*/
         /*color: darkred darkblue;*/
         /*color: blue;*/
-        padding: 2px;
+        /*color: darkred;   
+    border: 2px solid darkred;*/
+    }
+/* Приоритет стиля селектора по идентификатору #*/
+#btnSliderPrev {
+    left: 0px;
+}
+
+#btnSliderNext {
+    /*float: right;*/
+    margin-left: auto
+}
+
+    #btnSliderPrev:hover, #btnSliderNext:hover {
+        /*color: blue;*/
+        /*color: darkred;*/
+        /*border-bottom:2px solid darkred;*/
         border: 2px solid darkred;
     }
 
@@ -53,18 +80,14 @@
 }
     /* Стили панели при наведении мышью */
     .slider-img:hover {
-        display: inline-block;
-        width: 300px;
+        color: darkred;
+        border-bottom-color: darkblue;
+        /*color: blue; darkblue; darkred*/
+        /*display: inline-block;*/
+        /*анимация увеличения размера картинки*/
+        /* width: 300px;
         -webkit-transition: all;
-        -webkit-transition-duration: 500ms;
-        /*width: 30%;
-        margin-top: 0.5em;
-    padding-left: 1%;
-    padding-top: 1%;*/
-        /*color: darkblue; darkred*/
-        /*color: blue;*/
-        color: darkblue;
-        border-bottom: 2px solid darkblue;
+        -webkit-transition-duration: 500ms;*/
     }
 
 input {
@@ -74,7 +97,6 @@ input {
     position: relative;
     top: 50%;
 }
-
     input:focus {
         border: 2px solid dimgrey;
     }

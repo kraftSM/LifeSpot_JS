@@ -61,15 +61,6 @@ aside {
         color: aliceblue; /*aliceblue darkblue cadetblue darkgray*/
     }
 
-/* Стили слайдера */
-/*.slider-panel {
-    display: inline-block;*/
-    /*margin-top: 0.5em;
-    padding-left: 1%;
-    padding-top: 1%;*/
-    /*color: darkblue;*/
-    /*color: blue;
-}*/
 /* Стили панели(?) поиска */
 .search-container {
     display: inline-block;
@@ -98,14 +89,14 @@ aside {
 }
 .review-editors {
     visibility: visible;
-    /*
-        visibility: hidden;
+    /* visibility: hidden;
     display: none;
     display: inline-block;*/
 }
 .review-container, .review-button {
     display: inline-block;
     color: darkblue;
+    border-radius: 2px;
     /* background-color: cadetblue;
     margin-top: 0.5em;
         padding-left: 1%;

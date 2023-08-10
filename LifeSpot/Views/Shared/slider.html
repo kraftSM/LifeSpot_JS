@@ -2,16 +2,12 @@
 <link href="../Static/CSS/slider.css" rel="stylesheet" type="text/css">
 <script src="../Static/JS/slider.js" type="text/javascript"></script>
 <div class="slider-panel">
-    <span class="slider-button">
-        <!--<input type="button" id="btnSliderPrv" value="Prev Image " onclick=" alert('Prev Image')">-->
-        <input type="button" id="btnSliderPrev" value="<<" onclick="btnPrevClick()">
-    </span>
+    
     <!-- <span class="slider-img" onclick="imgClick(-1)">         -->
     <span class="slider-img" onclick="refresSliderIndex(-1)">
         <!--<img src="./Static/Images/1.jpg" style="width:50%" alt="Slider image 1" img>-->
         <img src="/Static/Images/1.jpg" style="width:100%" alt="Slider image 1" img>
         <text> SliderImage1</text>
-
     </span>
     <!--<span class="slider-img" onclick="imgClick(0)">-->
     <span class="slider-img" onclick="refresSliderIndex(0)">
@@ -25,13 +21,20 @@
     </span>
     <!-- <span class="slider-img" onclick="imgClick(+1)">         -->
     <span class="slider-img" onclick="refresSliderIndex(+1)">
-        <img src="/Static/Images/4.jpg" style="width:100%" alt="Slider image 3" img>
+        <img src="/Static/Images/4.jpg" style="width:100%" alt="Slider image 4" img>
         <text> SliderImage4</text>
     </span>
-
-    <span class="slider-button">
-        <!--<input type="button" id="btnSliderNxt" value="Next Image " onclick="toggleRewPanel()">-->
-        <!--<input type="button" id="btnSliderNxt" value="Next Image " onclick=" alert('Next Image')">-->
-        <input type="button" id="btnSliderNext" value=">>" onclick="btnNextClick()">
-    </span>
+    
+    <div class="slider-info"  >
+        <span class="slider-button">
+            <!--<input type="button" id="btnSliderPrv" value="Prev Image " onclick=" alert('Prev Image')">-->
+            <input type="button" id="btnSliderPrev" value="<<" onclick="btnPrevClick()">
+        </span>
+        <span class="slider-info-text" id="sliderInfoLine"> статус слайдера </span>
+        <span class="slider-button">
+                <!--<input type="button" id="btnSliderNxt" value="Next Image " onclick="toggleRewPanel()">-->
+                <!--<input type="button" id="btnSliderNxt" value="Next Image " onclick=" alert('Next Image')">-->
+                <input type="button" id="btnSliderNext" value=">>" onclick="btnNextClick()">
+            </span>
+    </div>
 </div>
