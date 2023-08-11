@@ -54,7 +54,7 @@ function refreshSliderIndex(idxDelta) {
         if (sliderIndex <= 0) sliderIndex += imageCount;
     }
     //alert("refresSliderIndex:" + idxDelta);
-    console.log("refresSliderIndex:" + idxDelta);
+    //console.log("refresSliderIndex:" + idxDelta);
     refreshSlider();
 }
 
@@ -72,7 +72,7 @@ function refreshSlider() {
     let sliderImagePref = "/Static/Images/";
     let sliderImageName = "";
 
-    console.log('refreshSliderInfo() -1');
+    //console.log('refreshSliderInfo() -1');
     //refreshSliderInfo();
 
     ////alert("refreshSlider" + curIdx);
@@ -84,14 +84,22 @@ function refreshSlider() {
 
     //// Пробегаемся по слайдеру    
 
-    for (let i = 0; i <= elements.length; i++)
+    for (let i = 0; i < elements.length; i++)
     {
         //alert("refresSlider " + i);
+        //console.log('sliderText-0');
+        //console.log(elements[i]);
+        ////console.log('sliderText-1');
+        ////console.log(elements[i].children);
+        ////console.log('sliderText-2');
+        ////console.log(elements[i].children[0]);       
+        ////console.log('sliderText-3');
+        ////console.log(elements[i].children[1]); 
 
-        console.log('sliderText-0');
-        
-        //console.log('sliderText-1');
-        sliderText = elements[i].querySelector("text").textContent;
+        sliderText = elements[i].querySelector("text").textContent; //достук через querySelector("text") - возвращается первый из потомков, имеющий CSS-secctor ="text"
+        //sliderText = elements[i].children[1].textContent; //достук как ко 2-му Item'у списка элементов-детей (читаем текстовое содержимое элемента)
+        //console.log("refreshSlider| sliderText " + sliderText);
+
         sliderIdx = ((sliderIndex + i - 1) % imageCount);// индекс элемента в текущем слайдере
         //alert("refresSlider i:" + i+" refresSlider isliderIdx:" + sliderIdx);
         //далее следует брать ImgName  & ImgText из ранее сформированого массива-0based (или БД) [ImagePath:ImageCaption]
@@ -102,12 +110,12 @@ function refreshSlider() {
         sliderNewText = sliderText.substring(0, (sliderText.length - 1)) + sliderIdx;
 
         //alert("refresSlider " + sliderText + ">->" + sliderNewText + ":img->" + sliderImageName);
-
-        console.log("refreshSlider| " + sliderText + ">->" + sliderNewText + ":img->" + sliderImageName);
+        //console.log("refreshSlider| " + sliderText + ">->" + sliderNewText + ":img->" + sliderImageName);
         elements[i].querySelector("text").textContent = sliderNewText;
         elements[i].querySelector("img").src = sliderImageName;
     }
-    console.log('refreshSliderInfo() -2'); // эта строка никогда не вызывается.ПОЧЕМУ??
+    //console.log('refreshSliderInfo() -2');
+
     //refresSliderInfo();
 }
 function itemMouseDown() {

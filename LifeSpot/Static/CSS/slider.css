@@ -81,6 +81,7 @@
     /* Стили панели при наведении мышью */
     .slider-img:hover {
         color: darkred;
+        background-color: darkgrey;
         border-bottom-color: darkblue;
         /*color: blue; darkblue; darkred*/
         /*display: inline-block;*/
